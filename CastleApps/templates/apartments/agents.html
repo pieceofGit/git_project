@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/agents.css' %}">
+{% endblock css %}
+{% block content %}
+<div class="agents">
+    <div class="container">
+        <div class="agents-wrapper">
+            {% for agent in agents %}
+            <div class="agent">
+                <div class="image">
+                    <img src=" {{ agent.profileImagePath }}"/>
+                </div>
+                <div class="meta">
+                    <h2>{{agent.first_name}} {{agent.last_name}}</h2>
+                    <div class="start"><span>Started working on {{agent.startDate}}</span></div>
+                    <div class="contact">
+                        <div class="email">Email: {{agent.email}}</div>
+                        <div class="phone">Phone: {{agent.phone}}</div>
+                    </div>
+                    <div class="desc">
+                        <p>{{agent.description}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
